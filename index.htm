@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Eddie Browser Outfitters</title>
+    <meta name="robots" content="noindex,nofollow" />
+	<!-- below is a google font, go to https://www.google.com/fonts to get yours! -->
+	<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/default.css" />
+    <style type="text/css">
+	
+		.masthead{
+			font-family: 'Damion', cursive; /* required for google font */
+			font-size:3em;
+		}
+	
+		#logo{
+			float:right;
+			display:inline-block;
+			padding:2px;
+			max-width:100px; /* actual size of image */
+			width:20%; /* approximate size taken on screen in maximum view */
+		}
+	
+		#wear {
+			float:left;
+			display:inline-block;
+			padding:20px;
+			max-width:300px; /* actual size of image */
+			width:33%; /* approximate size taken on screen in maximum view */
+		}
+		footer {
+			text-align:center;
+			clear:both; /* ride below all items */
+			}
+		nav{
+			text-align:center; /* centers the nav */
+		}
+		
+		nav ul {
+				list-style:none; /* removes the bullets */
+			}
+		nav ul li
+			{
+				display:inline-block; /* makes horizontal, but able to declare margins */
+				margin:0 2%; /* margin left-right, gets smaller as necessary */
+			}
+		nav a:hover{
+			text-decoration: none;
+		}	
+    </style>
+   
+    <!--[if ltIE9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+	 
+</head>
+<body>
+	<header role="banner">
+	    <img src="images/four-seasons.gif" alt="Seasonal Logo Goes Here" class="flexible" id="logo" />
+		<h1 class="masthead">To everything, there is a season!</h1>
+		<nav>
+			<ul>
+				<li class="seasons"><a href="Default">Default</a></li>
+				<li class="seasons"><a href="Spring">Spring</a></li>
+				<li class="seasons"><a href="Summer">Summer</a></li>
+				<li class="seasons"><a href="Fall">Fall</a></li>
+				<li class="seasons"><a href="Winter">Winter</a></li>
+				<li class="seasons"><a href="Christmas">Christmas</a></li>
+			</ul>
+		</nav>
+	</header>
+    <main role="main">
+		 <header><h3>Outfitter for All Seasons!</h3></header>
+		 <p>
+		 The colors of the seasonal images are as follows:
+		 <ul>
+			<li>Spring: <b>#2B7129</b></li>
+			<li>Summer: <b>#EBA52B</b></li>
+			<li>Fall: <b>#A81124</b></li>
+			<li>Winter: <b>#005393</b></li>
+		 </ul>
+		 </p>
+		 <p>
+			In this assignment I created a page that will change with the seasons, using jQuery. This is a single web page for seasonal wear outfitters, the page will change based on the season, including a look and feel, logo etc.  
+		 <img src="images/300x400.png" alt="Season Wear Goes Here" id="wear" />
+		 </p>
+		<p>
+			Using jQuery, this page promotes a unique look and feel for each of the four seasons by changing a page in the 4 following areas:
+
+			<p>A unique color scheme, for example stylesheet or background color, etc.</p>
+			<p>A unique logo, for example a picture of a snowflake for winter, etc.</p>
+			<p>A unique item of clothing, for example a parka for winter.</p>
+			<p>A unique string of text identifying the season, for example "Leap into our Fall Wear!"</p>
+		</p>
+		<p>
+			It feels appropriate to learn creating seasonal themes for web sites. Regularly changing the appearance of a site in tune with the seasons can help keep the site looking fresh and current. 
+		</p>
+		<p>Whatever system you decide to follow, and whatever season you choose to reflect, you don't want to switch your site theme by hand four times a year. It’s much more efficient to let a script calculate the date and apply the necessary changes to your CSS.</p>
+		<p>Changing dressing style based on seasons is important. Primarily dresses are also meant for us to be comfortable with weather conditions. </p>
+		<p>We Obviously have to wear warmer clothing during winters because we’d die of cold if we don’t do so! And similarly in summers we have to wear lighter clothes ’cause heat!</p>
+		<p>
+		Text provided by <a href="http://hipsum.co/" target="_blank">Minte Mekuria</a>
+		</p>
+     </main>
+    <footer>
+      <small>&copy; 2021, All Rights Reserved ~
+      <a href="http://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
+      <a href="http://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
+      </small>
+    </footer>
+    <!-- END Footer -->
+	<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$("document").ready(function(){
+
+
+       //alert("I'm jQuery!");
+
+		$('.seasons a').click(function(e){//find all a tags inside class of seasons
+            e.preventDefault();//stop default submission
+			var season = $(this).attr("href");//contents of href attribute of this element
+			//alert(season);
+
+			season = season.toLowerCase();
+
+			switch(season){
+
+				case 'spring':
+					$('main header h3') .html("Get a jump on Spring wear!");
+					$('#logo') .attr('src','images/spring.gif');
+					$('#wear') .attr('src','images/spring-wear.jpg');
+					$('html').css("background-color","#2B7129");
+					break;
+
+
+					case 'summer':
+					$('main header h3') .html("Hello, summer dress vibes!");
+					$('#logo') .attr('src','images/summer.gif');
+					$('#wear') .attr('src','images/summer-wear.jpg');
+					$('html').css("background-color","#EBA52B");
+					break;
+
+					case 'fall':
+					$('main header h3') .html("Happy fall, y'all!");
+					$('#logo') .attr('src','images/fall.gif');
+					$('#wear') .attr('src','images/fall-wear.jpg');
+					$('html').css("background-color","#A81124");
+					break;
+
+					case 'winter':
+					$('main header h3') .html("A snowflake is winter's version of a butterfly!");
+					$('#logo') .attr('src','images/winter.gif');
+					$('#wear') .attr('src','images/winter-wear.jpg');
+					$('html').css("background-color","#005393");
+					break;
+
+
+					default:
+						$('main header h3').html("Outfitter for all Seasons");
+						$('#wear') .attr('src','images/300x400.png');
+					    $('#logo') .attr('src','images/four-seasons.gif');
+					    
+			}
+
+		});
+	});
+    </script>
+	
+</body>
+</html>
